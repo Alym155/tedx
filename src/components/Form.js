@@ -84,7 +84,6 @@ function RegistrationPage() {
         data-netlify="true"
         noValidate
         autoComplete="off"
-        action="/index" // Optional: Redirect to a success page after submission
         enctype="multipart/form-data" // Needed for file uploads
         sx={{
           backgroundColor: 'white',
@@ -94,6 +93,8 @@ function RegistrationPage() {
           boxShadow: 3,
         }}
       >
+        <input type="hidden" name="form-name" value="registration" />
+        
         <Typography variant="h4" gutterBottom>Pricing Packages for TEDx Kafr Elsheikh STEM Event</Typography>
         <Typography variant="h6" gutterBottom>180 L.E - One ticket</Typography>
         <Typography variant="h6" gutterBottom>750 L.E - 5 tickets</Typography>
