@@ -1,8 +1,8 @@
 [build]
-  command = "npm install && npm run build"
+  command = "npm run build"
   publish = "build"
 
 [[redirects]]
-  from = "/success"
+  from = "/registration"
   to = "/index.html"
   status = 200
