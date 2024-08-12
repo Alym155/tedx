@@ -1,6 +1,7 @@
 [build]
+  # Ensure this path matches where your build output is located
   publish = "client/build"
-  functions = "server"
+  command = "cd client && npm install && npm run build"
 
 [[redirects]]
   from = "/success"
