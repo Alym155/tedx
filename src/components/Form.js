@@ -84,7 +84,7 @@ function RegistrationPage() {
         data-netlify="true"
         noValidate
         autoComplete="off"
-        action="/success" // Optional: Redirect to a success page after submission
+        action="/index" // Optional: Redirect to a success page after submission
         enctype="multipart/form-data" // Needed for file uploads
         sx={{
           backgroundColor: 'white',
