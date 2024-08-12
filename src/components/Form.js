@@ -82,9 +82,10 @@ function RegistrationPage() {
         name="registration"
         method="POST"
         data-netlify="true"
+        data-netlify-honeypot="bot-field" // Netlify honeypot field to avoid spam
         noValidate
         autoComplete="off"
-        action="/"
+        action="/" // Redirect to success page after submission
         encType="multipart/form-data"
         sx={{
           backgroundColor: 'white',
@@ -93,20 +94,10 @@ function RegistrationPage() {
           color: 'black',
           boxShadow: 3,
         }}
-        onSubmit={(e) => {
-          e.preventDefault();
-          fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(new FormData(e.target)).toString(),
-          })
-          .then(() => {
-            window.location.href = "/";
-          })
-          .catch((error) => alert(error));
-        }}
       >
         <input type="hidden" name="form-name" value="registration" />
+        <input type="hidden" name="bot-field" />
+
         <Typography variant="h4" gutterBottom>Pricing Packages for TEDx Kafr Elsheikh STEM Event</Typography>
         <Typography variant="h6" gutterBottom>180 L.E - One ticket</Typography>
         <Typography variant="h6" gutterBottom>750 L.E - 5 tickets</Typography>
