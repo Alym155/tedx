@@ -2,36 +2,39 @@ import React, { useState } from 'react';
 import { Container, TextField, Button, Typography, Box, FormControl, InputLabel, MenuItem, Select, List, ListItem, ListItemText } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+// Custom styled button with background color #9E2828
 const StyledButton = styled(Button)(({ theme }) => ({
   backgroundColor: '#9E2828',
   color: 'white',
   '&:hover': {
-    backgroundColor: '#7a1e1e',
+    backgroundColor: '#7a1e1e', // Darker shade on hover
   },
 }));
 
+// Custom styled text field with border color #9E2828
 const StyledTextField = styled(TextField)(({ theme }) => ({
   '& .MuiInputLabel-root': {
-    color: '#9E2828',
+    color: '#9E2828', // Label color
   },
   '& .MuiInputBase-root': {
-    color: 'black',
-    borderColor: '#9E2828',
+    color: 'black', // Input text color
+    borderColor: '#9E2828', // Border color
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderColor: '#9E2828',
+      borderColor: '#9E2828', // Border color
     },
     '&:hover fieldset': {
-      borderColor: '#7a1e1e',
+      borderColor: '#7a1e1e', // Darker shade on hover
     },
   },
 }));
 
+// Custom styled menu item with color #9E2828
 const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
   color: '#9E2828',
   '&:hover': {
-    backgroundColor: '#fce4e4',
+    backgroundColor: '#fce4e4', // Light red background on hover
   },
 }));
 
@@ -81,6 +84,7 @@ function RegistrationPage() {
         data-netlify="true"
         noValidate
         autoComplete="off"
+        action="/"
         encType="multipart/form-data"
         sx={{
           backgroundColor: 'white',
@@ -88,6 +92,18 @@ function RegistrationPage() {
           borderRadius: 2,
           color: 'black',
           boxShadow: 3,
+        }}
+        onSubmit={(e) => {
+          e.preventDefault();
+          fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(new FormData(e.target)).toString(),
+          })
+          .then(() => {
+            window.location.href = "/";
+          })
+          .catch((error) => alert(error));
         }}
       >
         <input type="hidden" name="form-name" value="registration" />
