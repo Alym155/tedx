@@ -2,39 +2,36 @@ import React, { useState } from 'react';
 import { Container, TextField, Button, Typography, Box, FormControl, InputLabel, MenuItem, Select, List, ListItem, ListItemText } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-// Custom styled button with background color #9E2828
 const StyledButton = styled(Button)(({ theme }) => ({
   backgroundColor: '#9E2828',
   color: 'white',
   '&:hover': {
-    backgroundColor: '#7a1e1e', // Darker shade on hover
+    backgroundColor: '#7a1e1e',
   },
 }));
 
-// Custom styled text field with border color #9E2828
 const StyledTextField = styled(TextField)(({ theme }) => ({
   '& .MuiInputLabel-root': {
-    color: '#9E2828', // Label color
+    color: '#9E2828',
   },
   '& .MuiInputBase-root': {
-    color: 'black', // Input text color
-    borderColor: '#9E2828', // Border color
+    color: 'black',
+    borderColor: '#9E2828',
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderColor: '#9E2828', // Border color
+      borderColor: '#9E2828',
     },
     '&:hover fieldset': {
-      borderColor: '#7a1e1e', // Darker shade on hover
+      borderColor: '#7a1e1e',
     },
   },
 }));
 
-// Custom styled menu item with color #9E2828
 const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
   color: '#9E2828',
   '&:hover': {
-    backgroundColor: '#fce4e4', // Light red background on hover
+    backgroundColor: '#fce4e4',
   },
 }));
 
@@ -84,7 +81,8 @@ function RegistrationPage() {
         data-netlify="true"
         noValidate
         autoComplete="off"
-        enctype="multipart/form-data" // Needed for file uploads
+        action="/"
+        encType="multipart/form-data"
         sx={{
           backgroundColor: 'white',
           padding: 4,
@@ -94,7 +92,6 @@ function RegistrationPage() {
         }}
       >
         <input type="hidden" name="form-name" value="registration" />
-        
         <Typography variant="h4" gutterBottom>Pricing Packages for TEDx Kafr Elsheikh STEM Event</Typography>
         <Typography variant="h6" gutterBottom>180 L.E - One ticket</Typography>
         <Typography variant="h6" gutterBottom>750 L.E - 5 tickets</Typography>
