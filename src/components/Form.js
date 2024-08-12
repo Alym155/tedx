@@ -81,7 +81,7 @@ function RegistrationPage() {
         data-netlify="true"
         noValidate
         autoComplete="off"
-        action="/"
+        action=""
         encType="multipart/form-data"
         sx={{
           backgroundColor: 'white',
