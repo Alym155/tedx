@@ -82,6 +82,7 @@ function RegistrationPage() {
         name="registration"
         method="POST"
         data-netlify="true" // Netlify form detection
+        data-netlify-honeypot="bot-field" // Honeypot for spam prevention
         noValidate
         autoComplete="off"
         action="/" // Redirect after successful submission
@@ -95,6 +96,7 @@ function RegistrationPage() {
         }}
       >
         <input type="hidden" name="form-name" value="registration" /> {/* Hidden form name field */}
+        <input type="hidden" name="bot-field" /> {/* Honeypot field */}
 
         <Typography variant="h4" gutterBottom>Pricing Packages for TEDx Kafr Elsheikh STEM Event</Typography>
         <Typography variant="h6" gutterBottom>180 L.E - One ticket</Typography>
