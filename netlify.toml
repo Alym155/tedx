@@ -3,6 +3,6 @@
   publish = "build"
 
 [[redirects]]
-  from = "/registration"
+  from = "/*"
   to = "/index.html"
   status = 200
