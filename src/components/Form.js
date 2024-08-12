@@ -75,42 +75,17 @@ function RegistrationPage() {
     setReceiptFiles(event.target.files);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const formData = new FormData();
-    formData.append('fullName', event.target.fullName.value);
-    formData.append('groupNames', event.target.groupNames.value);
-    formData.append('email', event.target.email.value);
-    formData.append('groupEmails', event.target.groupEmails.value);
-    formData.append('school', event.target.school.value);
-    formData.append('coupon', event.target.coupon.value);
-    formData.append('tickets', event.target.tickets.value);
-    formData.append('phone', event.target.phone.value);
-    formData.append('groupPhones', event.target.groupPhones.value);
-    
-    Array.from(idFiles).forEach((file) => formData.append('idFiles', file));
-    Array.from(receiptFiles).forEach((file) => formData.append('receiptFiles', file));
-
-    try {
-      const response = await fetch('http://localhost:3001/register', {
-        method: 'POST',
-        body: formData,
-      });
-      const data = await response.json();
-      console.log('Success:', data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-
   return (
     <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
       <Box
         component="form"
+        name="registration"
+        method="POST"
+        data-netlify="true"
         noValidate
         autoComplete="off"
-        onSubmit={handleSubmit}
+        action="/success" // Optional: Redirect to a success page after submission
+        enctype="multipart/form-data" // Needed for file uploads
         sx={{
           backgroundColor: 'white',
           padding: 4,
